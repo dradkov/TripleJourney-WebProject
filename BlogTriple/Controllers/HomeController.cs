@@ -26,5 +26,20 @@ namespace BlogTriple.Controllers
 
             return View();
         }
+
+        public ActionResult Hotels()
+        {
+            return View();
+        }
+
+        public ActionResult PlaneTickets()
+        {
+            return View();
+        }
+
+        public ActionResult RentACar()
+        {
+            return View();
+        }
     }
 }
