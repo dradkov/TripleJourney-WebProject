@@ -210,6 +210,7 @@
     <Compile Include="Models\Article.cs" />
     <Compile Include="Models\ArticleViewModel.cs" />
     <Compile Include="Models\BlogDbContext.cs" />
+    <Compile Include="Models\Car.cs" />
     <Compile Include="Models\EditUserViewModel.cs" />
     <Compile Include="Models\Hotels.cs" />
     <Compile Include="Models\HotelsViewModel.cs" />
@@ -291,6 +292,7 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="Views\Cars\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff" />
