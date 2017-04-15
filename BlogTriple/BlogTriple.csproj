@@ -287,6 +287,7 @@
     <Content Include="Views\Home\PlaneTickets.cshtml" />
     <Content Include="Views\Home\RentACar.cshtml" />
     <Content Include="Views\Hotels\Destination.cshtml" />
+    <Content Include="Views\Hotels\Submit.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

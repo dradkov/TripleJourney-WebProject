@@ -1,0 +1,65 @@
+﻿@model BlogTriple.Models.HotelsViewModel
+@{
+    ViewBag.Title = "Destination";
+}
+
+<div class="container">
+    <div class="well">
+        <h2>Choose Your Destination</h2>
+        @using (Html.BeginForm("Create", "Article", FormMethod.Post, new { @class = "form-horizontal" }))
+        {
+            @Html.AntiForgeryToken()
+            @Html.ValidationSummary("", new { @class = "text-danger" })
+
+            <div class="form-group">
+                @Html.LabelFor(m => m.Destination, new { @class = "control-label col-sm-4" })
+                <div class="col-sm-4">
+                    <select class="form-control" id="select">
+                        <option>Barcelona</option>
+                        <option>London</option>
+                        <option>Madrid</option>
+                        <option>Rome</option>
+                        <option>Sofia</option>
+                        <option>Vienna</option>
+                    </select>
+                </div>
+            </div>
+            <div class="form-group">
+                @Html.LabelFor(m => m.From, new { @class = "control-label col-sm-4" })
+                <div class="col-sm-4">
+                    <input type="date" class="form-control">
+                </div>
+            </div>
+            <div class="form-group">
+                @Html.LabelFor(m => m.To, new { @class = "control-label col-sm-4" })
+                <div class="col-sm-4">
+                    <input type="date" class="form-control">
+                </div>
+            </div>
+
+            <div class="form-group">
+                @Html.LabelFor(m => m.Rooms, new { @class = "control-label col-sm-4" })
+                <div class="col-sm-4">
+                    <select class="form-control" id="select">
+                        <option>1</option>
+                        <option>2</option>
+                        <option>3</option>
+                        <option>4</option>
+                        <option>5</option>
+                        <option>6</option>
+
+                    </select>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <div class="col-sm-4 col-sm-offset-4">
+                    @Html.ActionLink("Cancel", "Index", "Article", null, new { @class = "btn btn-default" })
+                    @Html.ActionLink("Submit", "Submit", "Hotels", null, new { @class = "btn btn-succsess" })
+
+                </div>
+            </div>
+        }
+    </div>
+</div>
+
