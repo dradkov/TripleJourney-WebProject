@@ -290,6 +290,7 @@
     <Content Include="Views\Home\RentACar.cshtml" />
     <Content Include="Views\Hotels\Destination.cshtml" />
     <Content Include="Views\Hotels\Submit.cshtml" />
+    <Content Include="Views\Home\Details.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

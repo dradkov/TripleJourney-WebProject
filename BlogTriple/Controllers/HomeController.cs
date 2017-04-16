@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using BlogTriple.Models;
 
 namespace BlogTriple.Controllers
 {
@@ -20,7 +21,29 @@ namespace BlogTriple.Controllers
             return View();
         }
 
+        [HttpGet]
         public ActionResult Contact()
+        {
+            return View();
+        }
+
+        [HttpPost]
+        public ActionResult Contact(Contact contact)
+        {
+            var db = new BlogDbContext();
+
+            if (ModelState.IsValid)
+            {
+                db.Contacts.Add(contact);
+                db.SaveChanges();
+
+                return RedirectToAction("Details", "Home");
+            }
+
+            return View(contact);
+        }
+
+        public ActionResult Details()
         {
             return View();
         }
