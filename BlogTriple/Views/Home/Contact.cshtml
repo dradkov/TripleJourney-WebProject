@@ -1,18 +1,75 @@
-﻿@{
+﻿@model BlogTriple.Models.Contact
+
+@{
     ViewBag.Title = "Contact";
 }
-<h2>@ViewBag.Title</h2>
+
+<div class="container">
+    <div class="page-body">
+        <div class="row">
+            <div class="col-md-5">
+                <br />
+                <h4>Contact form</h4>
+                <br />
+                @using (Html.BeginForm("Contact", "Home", FormMethod.Post, htmlAttributes: new { @class = "form-horizontal", role = "form" }))
+                {
+                    @Html.AntiForgeryToken()
+                    @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+
+                    <div class="form-group">
+                        @Html.TextBoxFor(m => m.Email, new { @class = "form-control", placeholder = "Email" })
+                        @Html.ValidationMessageFor(m => m.Email, "", new { @class = "text-danger" })
+                    </div>
+
+                    <div class="form-group">
+                        @Html.TextBoxFor(m => m.Name, new { @class = "form-control", placeholder = "Name" })
+                        @Html.ValidationMessageFor(m => m.Name, "", new { @class = "text-danger" })
+                    </div>
+
+                    <div class="form-group">
+                        @Html.TextBoxFor(m => m.Website, new { @class = "form-control", placeholder = "Website (optional)" })
+                        @Html.ValidationMessageFor(m => m.Website, "", new { @class = "text-danger" })
+                    </div>
+
+                    <div class="form-group">
+                        @Html.TextBoxFor(m => m.Subject, new { @class = "form-control", placeholder = "Subject" })
+                        @Html.ValidationMessageFor(m => m.Subject, "", new { @class = "text-danger" })
+                    </div>
+
+                    <div class="form-group">
+                        <textarea id="message" name="message" class="form-control" rows="7" placeholder="Message..." required="required"></textarea>
+                        @Html.ValidationMessageFor(m => m.Message, "", new { @class = "text-danger" })
+                    </div>
+
+                    <div class="form-group">
+                        <input type="submit" value="Send email" class="btn btn-block" />
+                    </div>
+                }
+            </div>
+            <div class="col-md-offset-2 col-md-5">
+                <br />
+                <h4>Contact information</h4>
+                <address>
+                    <p>
+                        <strong>Phone:</strong> +385 06 234 567
+                    </p>
+                    <p>
+                        <strong>Email:</strong> <a href="mailto: rent-a-car@mail.com">triple@softuni.bg</a>
+                    </p>
+                    <p>
+                        <strong>Business hours:</strong> 09:00 - 18:00
+                    </p>
+                    <p>
+                        <strong>Location:</strong> Street 66, Varazdin, HR-42000
+                    </p>
+                </address>
+                <div id="map" style="width:100%; height:360px; border-radius: 5px;"></div>
+            </div>
+        </div>
+    </div>
+</div>
 
 
-<address>
-    Triple Developmant<br />
-    Sofia, SF 1000<br />
-    <abbr title="Phone">P:</abbr>
-    0888123456
-</address>
-
-<address>
-    <strong>Developer:</strong>   <a href="mailto:Support@example.com">dimitar_R@example.com</a><br />
-    <strong>Developer:</strong> <a href="mailto:Marketing@example.com">miroslav_S@example.com</a><br/>
-    <strong>Developer:</strong> <a href="mailto:Marketing@example.com">emilian_G@example.com</a>
-</address>
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}

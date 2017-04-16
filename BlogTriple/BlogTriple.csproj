@@ -211,6 +211,7 @@
     <Compile Include="Models\ArticleViewModel.cs" />
     <Compile Include="Models\BlogDbContext.cs" />
     <Compile Include="Models\Car.cs" />
+    <Compile Include="Models\Contact.cs" />
     <Compile Include="Models\EditUserViewModel.cs" />
     <Compile Include="Models\Hotels.cs" />
     <Compile Include="Models\HotelsViewModel.cs" />

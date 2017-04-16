@@ -17,6 +17,8 @@ namespace BlogTriple.Models
 
         public virtual IDbSet<Article> Articles { get; set; }
 
+        public virtual IDbSet<Contact> Contacts { get; set; }
+
         public static BlogDbContext Create()
         {
             return new BlogDbContext();
