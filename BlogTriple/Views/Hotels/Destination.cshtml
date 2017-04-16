@@ -6,7 +6,7 @@
 <div class="container">
     <div class="well">
         <h2>Choose Your Destination</h2>
-        @using (Html.BeginForm("Create", "Article", FormMethod.Post, new { @class = "form-horizontal" }))
+        @using (Html.BeginForm("Destination", "Hotels", FormMethod.Post, new { @class = "form-horizontal" }))
         {
             @Html.AntiForgeryToken()
             @Html.ValidationSummary("", new { @class = "text-danger" })
@@ -14,7 +14,7 @@
             <div class="form-group">
                 @Html.LabelFor(m => m.Destination, new { @class = "control-label col-sm-4" })
                 <div class="col-sm-4">
-                    <select class="form-control" id="select">
+                    <select class="form-control" id="selectDestination">
                         <option>Barcelona</option>
                         <option>London</option>
                         <option>Madrid</option>
@@ -40,7 +40,7 @@
             <div class="form-group">
                 @Html.LabelFor(m => m.Rooms, new { @class = "control-label col-sm-4" })
                 <div class="col-sm-4">
-                    <select class="form-control" id="select">
+                    <select class="form-control" id="selectRoom">
                         <option>1</option>
                         <option>2</option>
                         <option>3</option>
@@ -55,7 +55,7 @@
             <div class="form-group">
                 <div class="col-sm-4 col-sm-offset-4">
                     @Html.ActionLink("Cancel", "Index", "Article", null, new { @class = "btn btn-default" })
-                    @Html.ActionLink("Submit", "Submit", "Hotels", null, new { @class = "btn btn-succsess" })
+                    <input type="submit" value="Submit" class="btn btn-success" />
 
                 </div>
             </div>

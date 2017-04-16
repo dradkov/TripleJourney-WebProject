@@ -1,4 +1,5 @@
-﻿using System;
+﻿using BlogTriple.Models;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -14,14 +15,27 @@ namespace BlogTriple.Controllers
             return View();
         }
 
+        [HttpGet]
         public ActionResult Destination()
         {
             return View();
         }
 
-        public ActionResult Submit()
+        [HttpPost]
+        public ActionResult Destination(HotelsViewModel destination)
         {
+            var database = new BlogDbContext();
+
+            if (ModelState.IsValid)
+            {
+                database.Destinations.Add(destination);
+                database.SaveChanges();
+
+                return RedirectToAction("DestinationDetails", "Hotels");
+            }
             return View();
-        } 
+        }
+
+        
     }
 }

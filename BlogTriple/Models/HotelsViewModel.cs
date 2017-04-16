@@ -8,21 +8,23 @@ namespace BlogTriple.Models
 {
     public class HotelsViewModel
     {
+        public int Id { get; set; }
+
         [Required]
         [Display(Name ="Destination")]
-        public string Destination { get; set; }
+        public int Destination { get; set; }
 
         [Required]
         [Display(Name = "From")]
-        public string From { get; set; }
+        public DateTime From { get; set; }
 
         [Required]
         [Display(Name = "To")]
-        public string To { get; set; }
+        public DateTime To { get; set; }
 
         [Required]
         [Display(Name = "Rooms")]
-        public string Rooms { get; set; }
+        public int Rooms { get; set; }
 
 
     }
