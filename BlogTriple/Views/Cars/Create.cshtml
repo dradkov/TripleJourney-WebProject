@@ -1,0 +1,79 @@
+﻿@model BlogTriple.Models.Car
+
+@{
+    ViewBag.Title = "Create";
+}
+
+<div class="container">
+    <div class="page-body">
+        <div class="row">
+            <div class="col-md-5">
+                <br />
+                <h4 align="center">Rent a Car</h4>
+                <br />
+
+                @using (Html.BeginForm("Create", "Cars", FormMethod.Post, htmlAttributes: new { @class = "form-horizontal", role = "form" }))
+                {
+                    @Html.AntiForgeryToken()
+                    @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+
+                    <div class="form-group">
+                        @Html.LabelFor(model => model.Location, new { @class = "col-sm-4 control-label" })
+                        <div class="col-sm-5">
+                            @Html.DropDownListFor(model => model.Location,
+                            new[] {
+                                new SelectListItem { Text = "Sofia", Value = "Sofia" },
+                                new SelectListItem { Text = "London", Value = "London" },
+                                new SelectListItem { Text = "Barcelona", Value = "Barcelona" },
+                                new SelectListItem { Text = "Paris", Value = "Paris" },
+                                new SelectListItem { Text = "Rome", Value = "Rome" }
+                            }, new { @class = "form-control" })
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        @Html.LabelFor(model => model.PickUpDate, new { @class = "col-sm-4 control-label" })
+                        <div class="col-sm-5">
+                            @Html.TextBoxFor(model => model.PickUpDate, "{0:yyyy-MM-dd}", new { @class = "form-control col-sm-10", @type = "date" })
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        @Html.LabelFor(model => model.PickUpTime, new { @class = "col-sm-4 control-label" })
+                        <div class="col-sm-5">
+                            @Html.TextBoxFor(model => model.PickUpTime, new { @class = "form-control col-sm-10", @type = "time" })
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        @Html.LabelFor(model => model.DropOffDate, new { @class = "col-sm-4 control-label" })
+                        <div class="col-sm-5">
+                            @Html.TextBoxFor(model => model.DropOffDate, "{0:yyyy-MM-dd}", new { @class = "form-control col-sm-10", @type = "date" })
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        @Html.LabelFor(model => model.DropOffTime, new { @class = "col-sm-4 control-label" })
+                        <div class="col-sm-5">
+                            @Html.TextBoxFor(model => model.DropOffTime, new { @class = "form-control col-sm-10", @type = "time" })
+                        </div>
+                    </div>
+
+
+                    <div class="form-group">
+                        <div class="col-md-offset-5 col-md-10">
+                            <input type="submit" value="Submit" class="btn btn-success" />
+                        </div>
+                    </div>
+
+                }
+            </div>
+        </div>
+    </div>
+</div>
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/jqueryval")
+    @Scripts.Render("~/bundles/datepicker")
+}
