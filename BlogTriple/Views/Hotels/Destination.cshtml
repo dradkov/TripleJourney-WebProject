@@ -14,41 +14,42 @@
             <div class="form-group">
                 @Html.LabelFor(m => m.Destination, new { @class = "control-label col-sm-4" })
                 <div class="col-sm-4">
-                    <select class="form-control" id="selectDestination">
-                        <option>Barcelona</option>
-                        <option>London</option>
-                        <option>Madrid</option>
-                        <option>Rome</option>
-                        <option>Sofia</option>
-                        <option>Vienna</option>
-                    </select>
+                    @Html.DropDownListFor(model => model.Destination,
+                    new[] {
+                        new SelectListItem { Text = "Barcelona", Value = "Barcelona" },
+                        new SelectListItem { Text = "Madrid", Value = "Madrid" },
+                        new SelectListItem { Text = "Vienna", Value = "Vienna" },
+                        new SelectListItem { Text = "Sofia", Value = "Sofia" },
+                    }, new { @class = "form-control" })
+
+
                 </div>
             </div>
             <div class="form-group">
                 @Html.LabelFor(m => m.From, new { @class = "control-label col-sm-4" })
                 <div class="col-sm-4">
-                    <input type="date" class="form-control">
+                    @Html.TextBoxFor(model => model.From, new { @class = "form-control col-sm-10", @type = "date" })
                 </div>
             </div>
             <div class="form-group">
                 @Html.LabelFor(m => m.To, new { @class = "control-label col-sm-4" })
                 <div class="col-sm-4">
-                    <input type="date" class="form-control">
+                    @Html.TextBoxFor(model => model.To, new { @class = "form-control", @type = "date" })
                 </div>
             </div>
 
             <div class="form-group">
                 @Html.LabelFor(m => m.Rooms, new { @class = "control-label col-sm-4" })
                 <div class="col-sm-4">
-                    <select class="form-control" id="selectRoom">
-                        <option>1</option>
-                        <option>2</option>
-                        <option>3</option>
-                        <option>4</option>
-                        <option>5</option>
-                        <option>6</option>
+                    @Html.DropDownListFor(model => model.Rooms,
+                    new[] {
+                        new SelectListItem { Text = "1", Value = "1" },
+                        new SelectListItem { Text = "2", Value = "2" },
+                        new SelectListItem { Text = "3", Value = "3" },
+                        new SelectListItem { Text = "4", Value = "4" },
+                    }, new { @class = "form-control" })
 
-                    </select>
+
                 </div>
             </div>
 

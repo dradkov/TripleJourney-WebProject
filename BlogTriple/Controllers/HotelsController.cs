@@ -22,13 +22,13 @@ namespace BlogTriple.Controllers
         }
 
         [HttpPost]
-        public ActionResult Destination(HotelsViewModel destination)
+        public ActionResult Destination(HotelsViewModel city)
         {
             var database = new BlogDbContext();
 
             if (ModelState.IsValid)
             {
-                database.Destinations.Add(destination);
+                database.Destinations.Add(city);
                 database.SaveChanges();
 
                 return RedirectToAction("DestinationDetails", "Hotels");
@@ -36,6 +36,7 @@ namespace BlogTriple.Controllers
             return View();
         }
 
-        
+
+
     }
 }

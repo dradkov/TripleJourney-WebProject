@@ -8,11 +8,12 @@ namespace BlogTriple.Models
 {
     public class HotelsViewModel
     {
+
         public int Id { get; set; }
 
         [Required]
         [Display(Name ="Destination")]
-        public int Destination { get; set; }
+        public string Destination { get; set; }
 
         [Required]
         [Display(Name = "From")]
@@ -24,7 +25,7 @@ namespace BlogTriple.Models
 
         [Required]
         [Display(Name = "Rooms")]
-        public int Rooms { get; set; }
+        public string Rooms { get; set; }
 
 
     }
