@@ -16,12 +16,14 @@ namespace BlogTriple.Controllers
         }
 
         [HttpGet]
+        [Authorize]
         public ActionResult Destination()
         {
             return View();
         }
 
         [HttpPost]
+        [Authorize]
         public ActionResult Destination(HotelsViewModel city)
         {
             var database = new BlogDbContext();
@@ -31,8 +33,15 @@ namespace BlogTriple.Controllers
                 database.Destinations.Add(city);
                 database.SaveChanges();
 
-                return RedirectToAction("DestinationDetails", "Hotels");
+                return RedirectToAction("Details", "Hotels");
             }
+            return View();
+        }
+
+        [HttpGet]
+        [Authorize]
+        public ActionResult Details()
+        {
             return View();
         }
 

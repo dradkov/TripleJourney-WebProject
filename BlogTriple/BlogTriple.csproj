@@ -290,7 +290,7 @@
     <Content Include="Views\Home\PlaneTickets.cshtml" />
     <Content Include="Views\Home\RentACar.cshtml" />
     <Content Include="Views\Hotels\Destination.cshtml" />
-    <Content Include="Views\Hotels\DestinationDetails.cshtml" />
+    <Content Include="Views\Hotels\Details.cshtml" />
     <Content Include="Views\Home\Details.cshtml" />
     <Content Include="Views\Cars\Create.cshtml" />
     <Content Include="Views\Cars\Details.cshtml" />
