@@ -42,6 +42,7 @@ namespace BlogTriple.Models
         public DateTime DropOffTime { get; set; }
 
         [Display(Name = "Total Price")]
+        [DisplayFormat(DataFormatString = "{0} EUR")]
         public decimal Price { get; set; }
 
 

@@ -21,8 +21,15 @@ namespace BlogTriple.Controllers
             if (ModelState.IsValid)
             {
                 var db = new BlogDbContext();
-                car.Price = 150;
 
+                var startDate = new DateTime(car.PickUpDate.Year, car.PickUpDate.Month, car.PickUpDate.Day,car.PickUpTime.Hour,car.PickUpTime.Minute,0);
+                var endDate = new DateTime(car.DropOffDate.Year,car.DropOffDate.Month,car.DropOffDate.Day,car.DropOffTime.Hour,car.DropOffTime.Minute,0);
+                
+                var span = endDate.Subtract(startDate);
+                var hours = span.TotalHours;
+                decimal money = (decimal)hours * 7;
+
+                car.Price = money;
                 db.Cars.Add(car);
                 db.SaveChanges();
 
