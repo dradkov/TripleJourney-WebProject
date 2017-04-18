@@ -4,10 +4,10 @@
     ViewBag.Title = "Details";
 }
 
-<h2>Details</h2>
+<h2 align="center">Your reservation has been sent successfuly</h2>
 
 <div>
-    <h4>Reservation</h4>
+    <h4>Order Details</h4>
     <hr />
     <dl class="dl-horizontal">
         <dt>
@@ -50,5 +50,16 @@
             @Html.DisplayFor(model => model.DropOffTime)
         </dd>
 
+        <hr align="left" width="300"/>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Price)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Price)
+        </dd>
     </dl>
 </div>
+
+

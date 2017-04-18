@@ -21,6 +21,7 @@ namespace BlogTriple.Controllers
             if (ModelState.IsValid)
             {
                 var db = new BlogDbContext();
+                car.Price = 150;
 
                 db.Cars.Add(car);
                 db.SaveChanges();

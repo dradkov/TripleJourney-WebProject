@@ -34,7 +34,8 @@
                     <div class="form-group">
                         @Html.LabelFor(model => model.PickUpDate, new { @class = "col-sm-4 control-label" })
                         <div class="col-sm-5">
-                            @Html.TextBoxFor(model => model.PickUpDate, "{0:yyyy-MM-dd}", new { @class = "form-control col-sm-10", @type = "date" })
+                            @Html.TextBoxFor(model => model.PickUpDate, "{0:yyyy-MM-dd}", new { @class = "form-control col-sm-10", @type = "date"})
+                            @Html.ValidationMessageFor(m => m.PickUpDate, "", new { @class = "text-danger" })
                         </div>
                     </div>
 
@@ -49,6 +50,8 @@
                         @Html.LabelFor(model => model.DropOffDate, new { @class = "col-sm-4 control-label" })
                         <div class="col-sm-5">
                             @Html.TextBoxFor(model => model.DropOffDate, "{0:yyyy-MM-dd}", new { @class = "form-control col-sm-10", @type = "date" })
+                            @Html.ValidationMessageFor(m => m.DropOffDate, "", new { @class = "text-danger" })
+                            
                         </div>
                     </div>
 
