@@ -24,7 +24,7 @@
                     <li>@Html.ActionLink("Home", "Index", "Home")</li>                                    
                     <li>@Html.ActionLink("Plane Tickets", "PlaneTickets", "Home")</li>
                     <li>@Html.ActionLink("Hotels", "Destination", "Hotels")</li>
-                    <li>@Html.ActionLink("Rent a Car", "Create", "Cars")</li>
+                    <li>@Html.ActionLink("Rent a Car", "All", "Cars")</li>
                     <li>@Html.ActionLink("Contact", "Contact", "Home")</li>
                 </ul>
                 @Html.Partial("_LoginPartial")
@@ -35,21 +35,24 @@
         @RenderBody()
         <hr />
         <footer class="footer-distributed">
-            <div class="footer-left">
-                <p class="footer-links">
-                    <a href="/Article/List">Home</a>
-                    ·
-                    <a href="/Home/PlaneTickets">Plane Tickets</a>
-                    ·
-                    <a href="/Hotels/Destination">Hotels</a>
-                    ·
-                    <a href="/Cars/Create">Rent a Car</a>                                 
-                    ·
-                    <a href="/Home/Contact">Contact</a>
-                </p>
-
-                <p>Triple Journey &copy; 2017</p>
-                <div style="text-align: right;"><img src="/Images/team.jpg" alt="Image" width="100px" height="100px" /></div>
+            <div class="row">
+                <div class="col-md-6">
+                    <p class="footer-links">
+                        <a href="/Article/List">Home</a>
+                        ·
+                        <a href="/Home/PlaneTickets">Plane Tickets</a>
+                        ·
+                        <a href="/Hotels/Destination">Hotels</a>
+                        ·
+                        <a href="/Cars/All">Rent a Car</a>
+                        ·
+                        <a href="/Home/Contact">Contact</a>
+                    </p>
+                    <p>Triple Journey &copy; 2017</p>
+                </div>
+                <div class="col-md-6">
+                    <img src="/Images/team.jpg" alt="Image" width="100px" height="100px" class="pull-right"/>
+                </div>
             </div>
 
         </footer>
