@@ -12,6 +12,12 @@ namespace BlogTriple.Models
 {
     public class ApplicationUser : IdentityUser
     {
+        public ApplicationUser()
+        {
+            this.Hotels = new HashSet<Hotel>();
+        }
+
+        public virtual ICollection<Hotel> Hotels { get; set; }
         [Required]
         public string FullName { get; set; }
 

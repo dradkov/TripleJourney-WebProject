@@ -19,7 +19,9 @@ namespace BlogTriple.Models
 
         public virtual IDbSet<Contact> Contacts { get; set; }
 
-        public virtual IDbSet<HotelsViewModel> Destinations { get; set; }
+        public virtual IDbSet<Destination> Destinations { get; set; }
+
+        public virtual IDbSet<Hotel> Hotels { get; set; }
 
         public virtual IDbSet<Car> Cars { get; set; }
 

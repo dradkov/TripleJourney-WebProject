@@ -1,4 +1,4 @@
-﻿@model BlogTriple.Models.HotelsViewModel
+﻿@model BlogTriple.Models.Destination
 @{
     ViewBag.Title = "Destination";
 }
@@ -12,9 +12,9 @@
             @Html.ValidationSummary("", new { @class = "text-danger" })
 
             <div class="form-group">
-                @Html.LabelFor(m => m.Destination, new { @class = "control-label col-sm-4" })
+                @Html.LabelFor(m => m.Town, new { @class = "control-label col-sm-4" })
                 <div class="col-sm-4">
-                    @Html.DropDownListFor(model => model.Destination,
+                    @Html.DropDownListFor(model => model.Town,
                     new[] {
                         new SelectListItem { Text = "Barcelona", Value = "Barcelona" },
                         new SelectListItem { Text = "Madrid", Value = "Madrid" },

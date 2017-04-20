@@ -10,6 +10,20 @@ namespace BlogTriple.Controllers
 {
     public class HotelsController : Controller
     {
+        [HttpGet]
+        [Authorize]
+        public ActionResult CreateHotels()
+        {
+            return View();
+        }
+
+        [HttpPost]
+        [Authorize]
+        public ActionResult CreateHotels(CreateHotels hotel )
+        {
+
+            return View();
+        }
 
         [HttpGet]
         [Authorize]
@@ -20,7 +34,7 @@ namespace BlogTriple.Controllers
 
         [HttpPost]
         [Authorize]
-        public ActionResult Destination(HotelsViewModel city)
+        public ActionResult Destination(Destination city)
         {
 
             if (ModelState.IsValid)
