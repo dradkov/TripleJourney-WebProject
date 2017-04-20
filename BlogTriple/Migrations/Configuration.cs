@@ -25,13 +25,23 @@ namespace BlogTriple.Migrations
                 this.CreateRole(context, "User");
             }
 
-
-            if (! context.Users.Any())
+            if (!context.Users.Any())
             {
-                this.CreateUser(context, "admin@admin.com","Admin", "123");
+                this.CreateUser(context, "admin@admin.com", "Admin", "123");
                 this.SetRoleToUser(context, "admin@admin.com", "Admin");
-
             }
+
+            //context.RentCars.Add(new CreateCar
+            //{
+                //Make = "Vw",
+                //ModelCar = "Golf",
+                //Color = "Red",
+                //Power = 240,
+                //Year = 2008,
+                //ImageUrl = "https://upload.wikimedia.org/wikipedia/commons/8/8c/VW_Golf_VI_GTI_front_20090408.jpg",
+                //PricePerDay = 45
+            //});
+
         }
 
         private void SetRoleToUser(BlogDbContext context, string email, string role)
@@ -51,7 +61,7 @@ namespace BlogTriple.Migrations
 
         private void CreateUser(BlogDbContext context, string email, string fullName, string password)
         {
-            var userManager = 
+            var userManager =
                 new UserManager<ApplicationUser>(new UserStore<ApplicationUser>(context));
 
             userManager.PasswordValidator = new PasswordValidator
@@ -64,11 +74,11 @@ namespace BlogTriple.Migrations
             };
 
 
-            var admin = new ApplicationUser {UserName =  email,FullName = fullName, Email = email};
+            var admin = new ApplicationUser { UserName = email, FullName = fullName, Email = email };
 
             var result = userManager.Create(admin, password);
 
-           
+
 
             if (!result.Succeeded)
             {

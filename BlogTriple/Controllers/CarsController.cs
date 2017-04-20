@@ -9,6 +9,23 @@ namespace BlogTriple.Controllers
 {
     public class CarsController : Controller
     {
+        public ActionResult All()
+        {
+            var db = new BlogDbContext();
+
+            var cars = db.RentCars.Select(c => new CarListingModel()
+            {
+                Id = c.Id,
+                ImageUrl = c.ImageUrl,
+                Make = c.Make,
+                Model = c.ModelCar,
+                Year = c.Year,
+                PricePerDay = c.PricePerDay
+            }).ToList();
+
+            return View(cars);
+        }
+
         [HttpGet]
         public ActionResult Create()
         {
@@ -48,6 +65,29 @@ namespace BlogTriple.Controllers
             if (car == null)
             {
                 return RedirectToAction("Index", "Home");
+            }
+
+            return View(car);
+        }
+
+        public ActionResult CarDetails(int id)
+        {
+            var db = new BlogDbContext();
+
+            var car = db.RentCars.Where(c => c.Id == id).Select(c => new CarDetailsModel
+            {
+                ModelCar = c.ModelCar,
+                Power = c.Power,
+                Year = c.Year,
+                ImageUrl = c.ImageUrl,
+                Make = c.Make,
+                Color = c.Color,
+                PricePerDay = c.PricePerDay,
+            }).FirstOrDefault();
+
+            if (car == null)
+            {
+               return HttpNotFound();
             }
 
             return View(car);

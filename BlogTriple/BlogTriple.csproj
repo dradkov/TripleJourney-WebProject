@@ -206,6 +206,7 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Helpers\ImageUrlAttribute.cs" />
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\ApplicationUser.cs" />
@@ -213,7 +214,10 @@
     <Compile Include="Models\ArticleViewModel.cs" />
     <Compile Include="Models\BlogDbContext.cs" />
     <Compile Include="Models\Car.cs" />
+    <Compile Include="Models\CarDetailsModel.cs" />
+    <Compile Include="Models\CarListingModel.cs" />
     <Compile Include="Models\Contact.cs" />
+    <Compile Include="Models\CreateCar.cs" />
     <Compile Include="Models\CreateHotels.cs" />
     <Compile Include="Models\EditUserViewModel.cs" />
     <Compile Include="Models\Hotel.cs" />
@@ -297,6 +301,8 @@
     <Content Include="Views\Hotels\DestinationDetails.cshtml" />
     <Content Include="Views\Hotels\HotelChoose.cshtml" />
     <Content Include="Views\Hotels\CreateHotels.cshtml" />
+    <Content Include="Views\Cars\All.cshtml" />
+    <Content Include="Views\Cars\CarDetails.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

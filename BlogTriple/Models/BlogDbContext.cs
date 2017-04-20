@@ -25,6 +25,8 @@ namespace BlogTriple.Models
 
         public virtual IDbSet<Car> Cars { get; set; }
 
+        public virtual IDbSet<CreateCar> RentCars { get; set; }
+
         public static BlogDbContext Create()
         {
             return new BlogDbContext();
