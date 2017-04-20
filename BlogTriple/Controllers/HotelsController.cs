@@ -1,4 +1,6 @@
 ﻿using BlogTriple.Models;
+
+using Microsoft.AspNet.Identity;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
@@ -10,20 +12,69 @@ namespace BlogTriple.Controllers
 {
     public class HotelsController : Controller
     {
-        [HttpGet]
-        [Authorize]
-        public ActionResult CreateHotels()
+
+        public ActionResult Create()
         {
             return View();
         }
 
         [HttpPost]
         [Authorize]
-        public ActionResult CreateHotels(CreateHotels hotel )
+        public ActionResult Create(CreateHotels hotelModel)
         {
+            if (ModelState.IsValid)
+            {
+                var database = new BlogDbContext();
 
-            return View();
+                var touristId = this.User.Identity.GetUserId();
+
+                var hotel = new Hotel
+                {
+                    Name = hotelModel.Name,
+                    Stars = hotelModel.Stars,
+                    Pool = hotelModel.Pool,
+                    Spa = hotelModel.Spa,
+                    Fitness = hotelModel.Fitness,
+                    ImageUrl = hotelModel.ImageUrl,
+                    PricePerNight = hotelModel.PricePerNight,
+                    TouristId = touristId
+
+                };
+
+                database.Hotels.Add(hotel);
+                database.SaveChanges();
+
+                return RedirectToAction("HotelDet", new { id = hotel.Id });
+            }
+
+            return View(hotelModel);
         }
+
+        public ActionResult HotelDetailsView(int id)
+        {
+            var database = new BlogDbContext();
+            var hotel = database.Hotels.Where(h => h.Id == id)
+                .Select(h => new HotelDetailsModel
+                {
+                    Name = h.Name,
+                    Stars = h.Stars,
+                    Fitness = h.Fitness,
+                    Pool = h.Pool,
+                    Spa = h.Spa,
+                    ImageUrl = h.ImageUrl,
+                    PricePerNight = h.PricePerNight
+
+                });
+
+            if (hotel == null)
+            {
+                return HttpNotFound();
+            }
+
+            return View(hotel);
+
+        }
+
 
         [HttpGet]
         [Authorize]

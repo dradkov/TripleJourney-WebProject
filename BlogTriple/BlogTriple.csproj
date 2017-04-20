@@ -218,10 +218,11 @@
     <Compile Include="Models\CarListingModel.cs" />
     <Compile Include="Models\Contact.cs" />
     <Compile Include="Models\CreateCar.cs" />
-    <Compile Include="Models\CreateHotels.cs" />
+    <Compile Include="Models\Hotels\CreateHotels.cs" />
     <Compile Include="Models\EditUserViewModel.cs" />
-    <Compile Include="Models\Hotel.cs" />
-    <Compile Include="Models\Destination.cs" />
+    <Compile Include="Models\Hotels\Hotel.cs" />
+    <Compile Include="Models\Hotels\Destination.cs" />
+    <Compile Include="Models\Hotels\HotelDetailsModel.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
     <Compile Include="Models\Role.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -300,9 +301,10 @@
     <Content Include="Views\Cars\Details.cshtml" />
     <Content Include="Views\Hotels\DestinationDetails.cshtml" />
     <Content Include="Views\Hotels\HotelChoose.cshtml" />
-    <Content Include="Views\Hotels\CreateHotels.cshtml" />
+    <Content Include="Views\Hotels\Create.cshtml" />
     <Content Include="Views\Cars\All.cshtml" />
     <Content Include="Views\Cars\CarDetails.cshtml" />
+    <Content Include="Views\Hotels\HotelDet.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

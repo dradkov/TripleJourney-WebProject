@@ -1,0 +1,89 @@
+﻿@model BlogTriple.Models.CreateHotels
+
+@{
+    ViewBag.Title = "Add Hotel Info";
+}
+
+
+@using (Html.BeginForm("Create", "Hotels", FormMethod.Post, new { @class = "form-horizontal", role = "form" }))
+{
+    @Html.AntiForgeryToken()
+    <h2>Create a new hotel</h2>
+    <hr />
+    @Html.ValidationSummary("", new { @class = "text-danger" })
+    <div class="form-group">
+        @Html.LabelFor(m => m.Name, new { @class = "col-sm-4 control-label" })
+        <div class="col-sm-4">
+            @Html.TextBoxFor(m => m.Name, new { @class = "form-control" })
+        </div>
+    </div>
+    <div class="form-group">
+        @Html.LabelFor(m => m.Stars, new { @class = "col-sm-4 control-label" })
+        <div class="col-sm-4">
+            @Html.DropDownListFor(model => model.Stars,
+                    new[] {
+                        new SelectListItem { Text = "1", Value = "1" },
+                        new SelectListItem { Text = "2", Value = "2" },
+                        new SelectListItem { Text = "3", Value = "3" },
+                        new SelectListItem { Text = "4", Value = "4" },
+                        new SelectListItem { Text = "5", Value = "5" }
+                    }, new { @class = "form-control" })
+        </div>
+    </div>
+    <div class="form-group">
+        @Html.LabelFor(m => m.Pool, new { @class = "col-sm-4 control-label" })
+        <div class="col-sm-4">
+            @Html.DropDownListFor(model => model.Pool,
+                    new[] {
+                        new SelectListItem { Text = "Yes", Value = "Yes" },
+                        new SelectListItem { Text = "No", Value = "No" }
+
+                    }, new { @class = "form-control" })
+        </div>
+    </div>
+    <div class="form-group">
+        @Html.LabelFor(m => m.Fitness, new { @class = "col-sm-4 control-label" })
+        <div class="col-sm-4">
+            @Html.DropDownListFor(model => model.Fitness,
+                    new[] {
+                        new SelectListItem { Text = "Yes", Value = "Yes" },
+                        new SelectListItem { Text = "No", Value = "No" }
+
+                    }, new { @class = "form-control" })
+        </div>
+    </div>
+    <div class="form-group">
+        @Html.LabelFor(m => m.Spa, new { @class = "col-sm-4 control-label" })
+        <div class="col-sm-4">
+            @Html.DropDownListFor(model => model.Spa,
+                    new[] {
+                        new SelectListItem { Text = "Yes", Value = "Yes" },
+                        new SelectListItem { Text = "No", Value = "No" }
+
+                    }, new { @class = "form-control" })
+        </div>
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(m => m.PricePerNight, new { @class = "col-sm-4 control-label" })
+        <div class="col-sm-4">
+            @Html.TextBoxFor(m => m.PricePerNight, new { @class = "form-control" })
+        </div>
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(m => m.ImageUrl, new { @class = "col-sm-4 control-label" })
+        <div class="col-sm-4">
+            @Html.TextBoxFor(m => m.ImageUrl, new { @class = "form-control" })
+        </div>
+    </div>
+    <div class="form-group">
+        <div class="col-sm-offset-4 col-sm-4">
+            <input type="submit" class="btn btn-default" value="Save" />
+        </div>
+    </div>
+}
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}
