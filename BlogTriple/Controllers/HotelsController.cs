@@ -44,13 +44,13 @@ namespace BlogTriple.Controllers
                 database.Hotels.Add(hotel);
                 database.SaveChanges();
 
-                return RedirectToAction("HotelDet", new { id = hotel.Id });
+                return RedirectToAction("HotelDetails", new { id = hotel.Id });
             }
 
             return View(hotelModel);
         }
 
-        public ActionResult HotelDetailsView(int id)
+        public ActionResult HotelDetails(int id)
         {
             var database = new BlogDbContext();
             var hotel = database.Hotels.Where(h => h.Id == id)
