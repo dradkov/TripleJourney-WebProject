@@ -27,12 +27,14 @@ namespace BlogTriple.Controllers
         }
 
         [HttpGet]
+        [Authorize]
         public ActionResult Create()
         {
             return View();
         }
 
         [HttpPost]
+        [Authorize]
         public ActionResult Create(Car car)
         {
             if (ModelState.IsValid)

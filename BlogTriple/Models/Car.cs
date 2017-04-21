@@ -45,7 +45,6 @@ namespace BlogTriple.Models
         [DisplayFormat(DataFormatString = "{0} EUR")]
         public decimal Price { get; set; }
 
-
         public class CustomDateRangeAttribute : RangeAttribute
         {
             public CustomDateRangeAttribute()
