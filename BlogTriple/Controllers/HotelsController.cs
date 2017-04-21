@@ -63,8 +63,7 @@ namespace BlogTriple.Controllers
                     Spa = h.Spa,
                     ImageUrl = h.ImageUrl,
                     PricePerNight = h.PricePerNight
-
-                });
+                }).FirstOrDefault();
 
             if (hotel == null)
             {
@@ -74,6 +73,8 @@ namespace BlogTriple.Controllers
             return View(hotel);
 
         }
+
+
 
 
         [HttpGet]
@@ -99,6 +100,8 @@ namespace BlogTriple.Controllers
                 var convertDays = numDays.TotalDays;
 
                 decimal result = 0;
+
+
                 if (city.Rooms == "1")
                 {
                     result = (decimal)convertDays * 20;

@@ -1,7 +1,24 @@
-﻿
+﻿@model BlogTriple.Models.HotelDetailsModel
+
 @{
     ViewBag.Title = "HotelDetail";
 }
 
-<h2>HotelDetail</h2>
+<div class="row mt-60">
+    <div class="col-md-4">
+        <img src="@Model.ImageUrl" class="img-responsive">
+    </div>
+    <div class="col-md-4">
+        <h2 class="hotel-details" >Hotel @Model.Name   </h2>
+        <h3>@Model.Stars Stars </h3>
+    </div>
+    <div class="col-md-4">
+        <p class="lead">
+           Pool - @Model.Pool <br/> 
+            Spa - @Model.Spa <br/>
+             Fitnes - @Model.Fitness  <br/>
+              Price per Night - @Model.PricePerNight €
+        </p>
+    </div>
+</div>
 
