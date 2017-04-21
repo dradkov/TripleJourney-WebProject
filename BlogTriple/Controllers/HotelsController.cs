@@ -1,5 +1,5 @@
 ﻿using BlogTriple.Models;
-
+using BlogTriple.Models.Hotels;
 using Microsoft.AspNet.Identity;
 using System;
 using System.Collections.Generic;
@@ -12,6 +12,29 @@ namespace BlogTriple.Controllers
 {
     public class HotelsController : Controller
     {
+
+        public ActionResult AllHotels()
+        {
+            var database = new BlogDbContext();
+
+            var hotels = database.Hotels.Select(h => new HotelListDetails
+            {
+                Id = h.Id,
+                Name = h.Name,
+                Fitness = h.Fitness,
+                Stars = h.Stars,
+                Spa = h.Spa,
+                Pool = h.Pool,
+                ImageUrl = h.ImageUrl,
+                PricePerNight = h.PricePerNight
+
+            }).ToList();
+
+            return View(hotels);
+        }
+
+       
+
 
         public ActionResult Create()
         {
@@ -123,10 +146,11 @@ namespace BlogTriple.Controllers
                 database.Destinations.Add(city);
                 database.SaveChanges();
 
-                return RedirectToAction("DestinationDetails", new { id = city.Id });
+                return RedirectToAction("AllHotels", new { id = city.Id });
             }
             return View();
         }
+
 
 
         public ActionResult DestinationDetails(int? id)

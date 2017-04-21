@@ -202,7 +202,6 @@
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\HotelsController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
-    <Compile Include="Controllers\TestController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -223,6 +222,7 @@
     <Compile Include="Models\Hotels\Hotel.cs" />
     <Compile Include="Models\Hotels\Destination.cs" />
     <Compile Include="Models\Hotels\HotelDetailsModel.cs" />
+    <Compile Include="Models\Hotels\HotelListDetails.cs" />
     <Compile Include="Models\Hotels\HotelOrdrerDetails.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
     <Compile Include="Models\Role.cs" />
@@ -306,6 +306,7 @@
     <Content Include="Views\Cars\All.cshtml" />
     <Content Include="Views\Cars\CarDetails.cshtml" />
     <Content Include="Views\Hotels\HotelDetails.cshtml" />
+    <Content Include="Views\Hotels\AllHotels.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
