@@ -5,6 +5,7 @@ using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Linq;
+using System.Net;
 using System.Web;
 using System.Web.Mvc;
 
@@ -19,7 +20,7 @@ namespace BlogTriple.Controllers
 
             var hotels = database.Hotels.Select(h => new HotelListDetails
             {
-                Id = h.Id,
+                Id = h.Id,                  
                 Name = h.Name,
                 Fitness = h.Fitness,
                 Stars = h.Stars,
@@ -33,7 +34,7 @@ namespace BlogTriple.Controllers
             return View(hotels);
         }
 
-       
+
 
 
         public ActionResult Create()
@@ -53,9 +54,9 @@ namespace BlogTriple.Controllers
 
                 var hotel = new Hotel
                 {
-                    Name = hotelModel.Name,
+                    Name = hotelModel.Name,                  
                     Stars = hotelModel.Stars,
-                    Pool = hotelModel.Pool,
+                    Pool = hotelModel.Pool,                   
                     Spa = hotelModel.Spa,
                     Fitness = hotelModel.Fitness,
                     ImageUrl = hotelModel.ImageUrl,
@@ -72,6 +73,9 @@ namespace BlogTriple.Controllers
 
             return View(hotelModel);
         }
+
+        
+       
 
         public ActionResult HotelDetails(int id)
         {
