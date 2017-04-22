@@ -7,6 +7,8 @@ namespace BlogTriple.Models.Hotels
 {
     public class HotelOrdrerDetails
     {
+        public int Id { get; set; }
+
         public string Town { get; set; }
 
         

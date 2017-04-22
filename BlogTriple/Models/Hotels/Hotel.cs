@@ -8,6 +8,7 @@ namespace BlogTriple.Models
 {
     public class Hotel
     {
+
         public int Id { get; set; }
 
         [Required]
@@ -34,6 +35,8 @@ namespace BlogTriple.Models
         public string TouristId { get; set; }
 
         public virtual ApplicationUser Tourist { get; set; }
+
+        
 
     }
 }

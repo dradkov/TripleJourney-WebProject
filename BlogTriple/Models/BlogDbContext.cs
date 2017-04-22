@@ -3,6 +3,7 @@ using System.Security.Claims;
 using System.Threading.Tasks;
 using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.EntityFramework;
+using BlogTriple.Models.Hotels;
 
 namespace BlogTriple.Models
 {
@@ -25,7 +26,11 @@ namespace BlogTriple.Models
 
         public virtual IDbSet<Car> Cars { get; set; }
 
+        public virtual IDbSet<FinalHotelOrder> FinalHotelOrders { get; set; }
+
+
         public virtual IDbSet<CreateCar> RentCars { get; set; }
+        public object FinalHotelOrder { get; internal set; }
 
         public static BlogDbContext Create()
         {

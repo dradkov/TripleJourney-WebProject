@@ -28,5 +28,16 @@ namespace BlogTriple.Models.Hotels
         public string Fitness { get; set; }
 
         public string ImageUrl { get; set; }
+
+        public string Town { get; set; }
+
+
+        public DateTime From { get; set; }
+
+        public DateTime To { get; set; }
+
+        public string Rooms { get; set; }
+
+        public decimal Price { get; set; }
     }
 }

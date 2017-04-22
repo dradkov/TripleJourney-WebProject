@@ -34,7 +34,38 @@ namespace BlogTriple.Controllers
             return View(hotels);
         }
 
+        [HttpPost]
+        public ActionResult AllHotels(CreateOrder orders)
+        {
+            if (ModelState.IsValid)
+            {
+                var database = new BlogDbContext();
 
+               var order = database.FinalHotelOrders.Select(o => new HotelOrdrerDetails
+                {
+                    Id = o.Id,
+                    Name = o.Name,
+                    Fitness = o.Fitness,
+                    Stars = o.Stars,
+                    Spa = o.Spa,
+                    Pool = o.Pool,
+                    ImageUrl = o.ImageUrl,
+                    PricePerNight = o.PricePerNight,
+                   Town = o.TownA.Town,
+                   From = o.FromA.From,
+                   To = o.ToA.To,
+                   Rooms = o.RoomsA.Rooms,
+                   Price = o.PriceA.Price
+               }).FirstOrDefault(); 
+
+                //database.FinalHotelOrders.Add(orders);
+                database.SaveChanges();
+
+                return RedirectToAction("HotelDetails", new { id = order.Id });
+            }
+            return View();
+           
+        }
 
 
         public ActionResult Create()
