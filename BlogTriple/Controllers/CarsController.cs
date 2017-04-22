@@ -48,6 +48,10 @@ namespace BlogTriple.Controllers
                 var hours = span.TotalHours;
                 decimal money = (decimal)hours * 7;
 
+                var userId = db.Users
+                        .Where(u => u.UserName == this.User.Identity.Name)
+                        .First().Id;
+                car.UserId = userId;
                 car.Price = money;
                 db.Cars.Add(car);
                 db.SaveChanges();

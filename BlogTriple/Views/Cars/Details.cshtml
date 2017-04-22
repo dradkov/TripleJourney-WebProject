@@ -11,6 +11,14 @@
     <hr />
     <dl class="dl-horizontal">
         <dt>
+            @Html.DisplayNameFor(model => model.User)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.User.FullName)
+        </dd>
+        <hr align="left" width="300"/>
+        <dt>
             @Html.DisplayNameFor(model => model.Location)
         </dt>
 
