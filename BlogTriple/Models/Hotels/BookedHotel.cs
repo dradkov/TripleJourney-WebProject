@@ -6,7 +6,7 @@ using System.Web;
 
 namespace BlogTriple.Models.Hotels
 {
-    public class BookedOrder
+    public class BookedHotel
     {
         [Key]
         public int Id { get; set; }

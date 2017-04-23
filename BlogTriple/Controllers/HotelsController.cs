@@ -35,73 +35,35 @@ namespace BlogTriple.Controllers
         }
 
         [HttpPost]
-        public ActionResult AllHotels(BookedOrder orders)
+        public ActionResult AllHotels(HotelListDetails booked)
         {
-
             if (ModelState.IsValid)
             {
                 var database = new BlogDbContext();
-
                 var touristId = this.User.Identity.GetUserId();
 
-                var hotelInfo = database.Hotels.Select(h => new CreateOrder
+                var order = new BookedHotel
                 {
-                    Name = h.NameHotel.Name,
-                    Stars = h.StarsHotel.Stars,
-                    Pool = h.PoolHotel.Pool,
-                    Spa = h.SpaHotel.Spa,
-                    Fitness = h.FitnessHotel.Fitness,
-                    ImageUrl = h.ImageUrlHotel.ImageUrl,
-                    PricePerNight = h.PricePerNightHotel.PricePerNight,
-                    TouristId = h.TouristHotel.TouristId
-                }).FirstOrDefault();
+                    Name = booked.Name,
+                    Stars = booked.Stars,
+                    Pool = booked.Pool,
+                    Spa = booked.Spa,
+                    Fitness = booked.Fitness,
+                    ImageUrl = booked.ImageUrl,
+                    PricePerNight = booked.PricePerNight,
+                    TouristId = touristId
 
-                var destinationInfo = database.Destinations.Select(d => new Destination
-                {
-                    Id = d.Id,
-                    Town = d.TownDestination.Town,
-                    From = d.FromDestination.From,
-                    To = d.ToDestination.To,
-                    Price = d.PriceDestination.Price
-                }).FirstOrDefault();
-
-                var startDate = new DateTime(orders.From.Year, orders.From.Month, orders.From.Day);
-                var endDate = new DateTime(orders.To.Year, orders.To.Month, orders.To.Day);
-
-                var numDays = endDate.Subtract(startDate);
-                var convertDays = numDays.TotalDays;
-
-                decimal result = 0;
-
-                if (orders.Rooms == "1")
-                {
-                    result = (decimal)convertDays * (orders.Price * orders.PricePerNight);
-                }
-                else if (orders.Rooms == "2")
-                {
-                    result =
-                        (decimal)convertDays * (orders.Price * orders.PricePerNight) * 2;
-                }
-                else if (orders.Rooms == "3")
-                {
-                    result =
-                        (decimal)convertDays * (orders.Price * orders.PricePerNight) * 3;
-                }
-                else if (orders.Rooms == "4")
-                {
-                    result =
-                        ((decimal)convertDays * (orders.Price * orders.PricePerNight)) * 4;
                 };
 
-                orders.Price = result;
-                database.BookedOrder.Add(orders);
+                database.BookedHotels.Add(order);
                 database.SaveChanges();
 
-                return RedirectToAction("BookingDetails", new { id = orders.Id });
+                return RedirectToAction("BookingDetails", new { id = order.Id });
             }
-            return View();
+            return View(booked);
         }
 
+    
         public ActionResult BookingDetails()
         {
             return View();

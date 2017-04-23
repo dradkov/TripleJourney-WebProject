@@ -44,22 +44,7 @@ namespace BlogTriple.Models
 
         //public virtual ApplicationUser Tourist { get; set; }
 
-        public virtual ApplicationUser IdDestination { get; set; }
-
-
-        public virtual ApplicationUser TownDestination { get; set; }
-
-
-        public virtual ApplicationUser FromDestination { get; set; }
-
-
-        public virtual ApplicationUser ToDestination { get; set; }
-
-
-        public virtual ApplicationUser RoomsDestination { get; set; }
-
-
-        public virtual ApplicationUser PriceDestination { get; set; }
+       
 
         public class CustomDateRangeAttribute : RangeAttribute
         {

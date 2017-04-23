@@ -217,7 +217,7 @@
     <Compile Include="Models\CarListingModel.cs" />
     <Compile Include="Models\Contact.cs" />
     <Compile Include="Models\CreateCar.cs" />
-    <Compile Include="Models\Hotels\BookedOrder.cs" />
+    <Compile Include="Models\Hotels\BookedHotel.cs" />
     <Compile Include="Models\Hotels\CreateHotels.cs" />
     <Compile Include="Models\EditUserViewModel.cs" />
     <Compile Include="Models\Hotels\CreateOrder.cs" />

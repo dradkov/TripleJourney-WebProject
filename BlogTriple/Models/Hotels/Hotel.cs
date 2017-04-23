@@ -34,32 +34,6 @@ namespace BlogTriple.Models
 
         public string TouristId { get; set; }
 
-        public virtual ApplicationUser Tourist { get; set; }
-
-        public virtual ApplicationUser IdHotel { get; set; }
-
-
-        public virtual ApplicationUser NameHotel { get; set; }
-
-
-        public virtual ApplicationUser StarsHotel { get; set; }
-
-
-        public virtual ApplicationUser PoolHotel { get; set; }
-
-
-        public virtual ApplicationUser SpaHotel { get; set; }
-
-
-        public virtual ApplicationUser PricePerNightHotel { get; set; }
-
-
-        public virtual ApplicationUser FitnessHotel { get; set; }
-
-        public virtual ApplicationUser ImageUrlHotel { get; set; }
-
-        public virtual ApplicationUser TouristHotel { get; set; }
-
 
 
     }

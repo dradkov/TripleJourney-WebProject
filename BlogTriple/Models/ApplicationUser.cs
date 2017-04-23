@@ -27,44 +27,7 @@ namespace BlogTriple.Models
         [Required]
         public string FullName { get; set; }
 
-        //public int Id { get; set; }
-
-        [Required]
-        public string Town { get; set; }
-
-        [Required]
-        public DateTime From { get; set; }
-
-        [Required]
-        public DateTime To { get; set; }
-
-        [Required]
-        public string Rooms { get; set; }
-
-
-        public decimal Price { get; set; }
-
-        public string Name { get; set; }
-
-        [Required]
-        public string Stars { get; set; }
-
-        [Required]
-        public string Pool { get; set; }
-
-        [Required]
-        public string Spa { get; set; }
-
-        [Required]
-        public decimal PricePerNight { get; set; }
-
-        [Required]
-        public string Fitness { get; set; }
-
-        public string ImageUrl { get; set; }
-
-        public string TouristId { get; set; }
-
+      
         public async Task<ClaimsIdentity> GenerateUserIdentityAsync(UserManager<ApplicationUser> manager)
         {
             // Note the authenticationType must match the one defined in CookieAuthenticationOptions.AuthenticationType
