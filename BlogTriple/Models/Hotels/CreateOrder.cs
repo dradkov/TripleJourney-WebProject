@@ -40,5 +40,7 @@ namespace BlogTriple.Models.Hotels
 
         public string ImageUrl { get; set; }
 
+        public string TouristId { get; set; }
+
     }
 }

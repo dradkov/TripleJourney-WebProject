@@ -20,7 +20,7 @@ namespace BlogTriple.Controllers
 
             var hotels = database.Hotels.Select(h => new HotelListDetails
             {
-                Id = h.Id,                  
+                Id = h.Id,
                 Name = h.Name,
                 Fitness = h.Fitness,
                 Stars = h.Stars,
@@ -35,38 +35,77 @@ namespace BlogTriple.Controllers
         }
 
         [HttpPost]
-        public ActionResult AllHotels(CreateOrder orders)
+        public ActionResult AllHotels(BookedOrder orders)
         {
+
             if (ModelState.IsValid)
             {
                 var database = new BlogDbContext();
 
-               var order = database.FinalHotelOrders.Select(o => new HotelOrdrerDetails
-                {
-                    Id = o.Id,
-                    Name = o.Name,
-                    Fitness = o.Fitness,
-                    Stars = o.Stars,
-                    Spa = o.Spa,
-                    Pool = o.Pool,
-                    ImageUrl = o.ImageUrl,
-                    PricePerNight = o.PricePerNight,
-                   Town = o.TownA.Town,
-                   From = o.FromA.From,
-                   To = o.ToA.To,
-                   Rooms = o.RoomsA.Rooms,
-                   Price = o.PriceA.Price
-               }).FirstOrDefault(); 
+                var touristId = this.User.Identity.GetUserId();
 
-                //database.FinalHotelOrders.Add(orders);
+                var hotelInfo = database.Hotels.Select(h => new CreateOrder
+                {
+                    Name = h.NameHotel.Name,
+                    Stars = h.StarsHotel.Stars,
+                    Pool = h.PoolHotel.Pool,
+                    Spa = h.SpaHotel.Spa,
+                    Fitness = h.FitnessHotel.Fitness,
+                    ImageUrl = h.ImageUrlHotel.ImageUrl,
+                    PricePerNight = h.PricePerNightHotel.PricePerNight,
+                    TouristId = h.TouristHotel.TouristId
+                }).FirstOrDefault();
+
+                var destinationInfo = database.Destinations.Select(d => new Destination
+                {
+                    Id = d.Id,
+                    Town = d.TownDestination.Town,
+                    From = d.FromDestination.From,
+                    To = d.ToDestination.To,
+                    Price = d.PriceDestination.Price
+                }).FirstOrDefault();
+
+                var startDate = new DateTime(orders.From.Year, orders.From.Month, orders.From.Day);
+                var endDate = new DateTime(orders.To.Year, orders.To.Month, orders.To.Day);
+
+                var numDays = endDate.Subtract(startDate);
+                var convertDays = numDays.TotalDays;
+
+                decimal result = 0;
+
+                if (orders.Rooms == "1")
+                {
+                    result = (decimal)convertDays * (orders.Price * orders.PricePerNight);
+                }
+                else if (orders.Rooms == "2")
+                {
+                    result =
+                        (decimal)convertDays * (orders.Price * orders.PricePerNight) * 2;
+                }
+                else if (orders.Rooms == "3")
+                {
+                    result =
+                        (decimal)convertDays * (orders.Price * orders.PricePerNight) * 3;
+                }
+                else if (orders.Rooms == "4")
+                {
+                    result =
+                        ((decimal)convertDays * (orders.Price * orders.PricePerNight)) * 4;
+                };
+
+                orders.Price = result;
+                database.BookedOrder.Add(orders);
                 database.SaveChanges();
 
-                return RedirectToAction("HotelDetails", new { id = order.Id });
+                return RedirectToAction("BookingDetails", new { id = orders.Id });
             }
             return View();
-           
         }
 
+        public ActionResult BookingDetails()
+        {
+            return View();
+        }
 
         public ActionResult Create()
         {
@@ -85,9 +124,9 @@ namespace BlogTriple.Controllers
 
                 var hotel = new Hotel
                 {
-                    Name = hotelModel.Name,                  
+                    Name = hotelModel.Name,
                     Stars = hotelModel.Stars,
-                    Pool = hotelModel.Pool,                   
+                    Pool = hotelModel.Pool,
                     Spa = hotelModel.Spa,
                     Fitness = hotelModel.Fitness,
                     ImageUrl = hotelModel.ImageUrl,
@@ -105,8 +144,8 @@ namespace BlogTriple.Controllers
             return View(hotelModel);
         }
 
-        
-       
+
+
 
         public ActionResult HotelDetails(int id)
         {
@@ -151,33 +190,33 @@ namespace BlogTriple.Controllers
             {
                 var database = new BlogDbContext();
 
-                var startDate = new DateTime(city.From.Year, city.From.Month, city.From.Day);
-                var endDate = new DateTime(city.To.Year, city.To.Month, city.To.Day);
+                //var startDate = new DateTime(city.From.Year, city.From.Month, city.From.Day);
+                //var endDate = new DateTime(city.To.Year, city.To.Month, city.To.Day);
 
-                var numDays = endDate.Subtract(startDate);
-                var convertDays = numDays.TotalDays;
+                //var numDays = endDate.Subtract(startDate);
+                //var convertDays = numDays.TotalDays;
 
-                decimal result = 0;
+                //decimal result = 0;
 
 
-                if (city.Rooms == "1")
-                {
-                    result = (decimal)convertDays * 20;
-                }
-                else if (city.Rooms == "2")
-                {
-                    result = (decimal)convertDays * 30;
-                }
-                else if (city.Rooms == "3")
-                {
-                    result = (decimal)convertDays * 40;
-                }
-                else if (city.Rooms == "4")
-                {
-                    result = (decimal)convertDays * 60;
-                }
+                //if (city.Rooms == "1")
+                //{
+                //    result = (decimal)convertDays * 20;
+                //}
+                //else if (city.Rooms == "2")
+                //{
+                //    result = (decimal)convertDays * 30;
+                //}
+                //else if (city.Rooms == "3")
+                //{
+                //    result = (decimal)convertDays * 40;
+                //}
+                //else if (city.Rooms == "4")
+                //{
+                //    result = (decimal)convertDays * 60;
+                //}
 
-                city.Price = result;
+                //city.Price = result;
                 database.Destinations.Add(city);
                 database.SaveChanges();
 

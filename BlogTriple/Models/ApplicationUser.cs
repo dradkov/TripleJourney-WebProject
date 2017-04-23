@@ -15,9 +15,12 @@ namespace BlogTriple.Models
         public ApplicationUser()
         {
             this.Hotels = new HashSet<Hotel>();
+            this.Destinations = new HashSet<Destination>();
         }
 
         public virtual ICollection<Hotel> Hotels { get; set; }
+
+        public virtual ICollection<Destination> Destinations { get; set; }
 
 
 
@@ -26,10 +29,10 @@ namespace BlogTriple.Models
 
         //public int Id { get; set; }
 
-        [Required]        
+        [Required]
         public string Town { get; set; }
 
-        [Required]        
+        [Required]
         public DateTime From { get; set; }
 
         [Required]
@@ -40,6 +43,27 @@ namespace BlogTriple.Models
 
 
         public decimal Price { get; set; }
+
+        public string Name { get; set; }
+
+        [Required]
+        public string Stars { get; set; }
+
+        [Required]
+        public string Pool { get; set; }
+
+        [Required]
+        public string Spa { get; set; }
+
+        [Required]
+        public decimal PricePerNight { get; set; }
+
+        [Required]
+        public string Fitness { get; set; }
+
+        public string ImageUrl { get; set; }
+
+        public string TouristId { get; set; }
 
         public async Task<ClaimsIdentity> GenerateUserIdentityAsync(UserManager<ApplicationUser> manager)
         {

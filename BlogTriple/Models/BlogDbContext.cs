@@ -26,10 +26,11 @@ namespace BlogTriple.Models
 
         public virtual IDbSet<Car> Cars { get; set; }
 
-        public virtual IDbSet<FinalHotelOrder> FinalHotelOrders { get; set; }
-
+       public virtual IDbSet<BookedOrder> BookedOrder { get; set; }
 
         public virtual IDbSet<CreateCar> RentCars { get; set; }
+
+
         public object FinalHotelOrder { get; internal set; }
 
         public static BlogDbContext Create()

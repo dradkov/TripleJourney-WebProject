@@ -217,6 +217,7 @@
     <Compile Include="Models\CarListingModel.cs" />
     <Compile Include="Models\Contact.cs" />
     <Compile Include="Models\CreateCar.cs" />
+    <Compile Include="Models\Hotels\BookedOrder.cs" />
     <Compile Include="Models\Hotels\CreateHotels.cs" />
     <Compile Include="Models\EditUserViewModel.cs" />
     <Compile Include="Models\Hotels\CreateOrder.cs" />
@@ -225,7 +226,6 @@
     <Compile Include="Models\Hotels\Destination.cs" />
     <Compile Include="Models\Hotels\HotelDetailsModel.cs" />
     <Compile Include="Models\Hotels\HotelListDetails.cs" />
-    <Compile Include="Models\Hotels\HotelOrdrerDetails.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
     <Compile Include="Models\Role.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -309,6 +309,7 @@
     <Content Include="Views\Cars\CarDetails.cshtml" />
     <Content Include="Views\Hotels\HotelDetails.cshtml" />
     <Content Include="Views\Hotels\AllHotels.cshtml" />
+    <Content Include="Views\Hotels\BookingDetails.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
