@@ -1,7 +1,9 @@
 ﻿using System;
+using System.IO;
 using System.Linq;
 using System.Threading.Tasks;
 using System.Web;
+using System.Web.Hosting;
 using System.Web.Mvc;
 using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.Owin;
@@ -322,6 +324,35 @@ namespace BlogTriple.Controllers
             return result.Succeeded ? RedirectToAction("ManageLogins") : RedirectToAction("ManageLogins", new { Message = ManageMessageId.Error });
         }
 
+        [HttpPost]
+        public async Task<ActionResult> UploadPhoto(HttpPostedFileBase file)
+        {
+            if (file != null && file.ContentLength > 0)
+            {
+                var user = await GetCurrentUserAsync();
+                var username = user.UserName;
+                var fileExt = Path.GetExtension(file.FileName);
+                var fnm = username + ".png";
+                if (fileExt.ToLower().EndsWith(".png") || fileExt.ToLower().EndsWith(".jpg") || fileExt.ToLower().EndsWith(".gif"))
+                {
+                    var filePath = HostingEnvironment.MapPath("~/Content/images/profile/") + fnm;
+                    var directory = new DirectoryInfo(HostingEnvironment.MapPath("~/Content/images/profile/"));
+                    if (directory.Exists == false)
+                    {
+                        directory.Create();
+                    }
+                    ViewBag.FilePath = filePath.ToString();
+                    file.SaveAs(filePath);
+                    return RedirectToAction("Index", new { Message = ManageMessageId.PhotoUploadSuccess });
+                }
+                else
+                {
+                    return RedirectToAction("Index", new { Message = ManageMessageId.FileExtensionError });
+                }
+            }
+            return RedirectToAction("Index", new { Message = ManageMessageId.Error });
+        }
+
         protected override void Dispose(bool disposing)
         {
             if (disposing && _userManager != null)
@@ -373,6 +404,11 @@ namespace BlogTriple.Controllers
             return false;
         }
 
+        private async Task<ApplicationUser> GetCurrentUserAsync()
+        {
+            return await UserManager.FindByIdAsync(User.Identity.GetUserId());
+        }
+
         public enum ManageMessageId
         {
             AddPhoneSuccess,
@@ -381,7 +417,9 @@ namespace BlogTriple.Controllers
             SetPasswordSuccess,
             RemoveLoginSuccess,
             RemovePhoneSuccess,
-            Error
+            Error,
+            PhotoUploadSuccess,
+            FileExtensionError
         }
 
 #endregion
