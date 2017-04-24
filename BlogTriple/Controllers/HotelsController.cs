@@ -34,38 +34,10 @@ namespace BlogTriple.Controllers
             return View(hotels);
         }
 
-        [HttpPost]
-        public ActionResult AllHotels(HotelListDetails booked)
-        {
-            if (ModelState.IsValid)
-            {
-                var database = new BlogDbContext();
-                var touristId = this.User.Identity.GetUserId();
-
-                var order = new BookedHotel
-                {
-                    Name = booked.Name,
-                    Stars = booked.Stars,
-                    Pool = booked.Pool,
-                    Spa = booked.Spa,
-                    Fitness = booked.Fitness,
-                    ImageUrl = booked.ImageUrl,
-                    PricePerNight = booked.PricePerNight,
-                    TouristId = touristId
-
-                };
-
-                database.BookedHotels.Add(order);
-                database.SaveChanges();
-
-                return RedirectToAction("BookingDetails", new { id = order.Id });
-            }
-            return View(booked);
-        }
-
     
         public ActionResult BookingDetails()
         {
+
             return View();
         }
 

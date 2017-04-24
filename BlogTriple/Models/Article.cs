@@ -14,6 +14,7 @@ namespace BlogTriple.Models
 
         [Required]
         [StringLength(50)]
+        [Display(Name ="City")]
         public string Title { get; set; }
 
         [Required]
