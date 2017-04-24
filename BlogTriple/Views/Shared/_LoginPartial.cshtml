@@ -27,7 +27,10 @@
                 var imgUrl = Url.Content("~/Content/images/profile/" + User.Identity.GetUserName() + ".png") + "?time=" + DateTime.Now.ToString();
             }
 
-            <img src="@imgUrl" height="50" width="50" />
+            @if (File.Exists(Server.MapPath("/Content/images/profile/" + User.Identity.GetUserName() + ".png")))
+            {
+                <img src="@imgUrl" height="50" width="50" />
+            }
         </li>
 
 
