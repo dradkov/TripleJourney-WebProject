@@ -18,16 +18,13 @@
                     @Html.ValidationSummary(true, "", new { @class = "text-danger" })
 
                     <div class="form-group">
-                        @Html.LabelFor(model => model.Location, new { @class = "col-sm-4 control-label" })
-                        <div class="col-sm-5">
-                            @Html.DropDownListFor(model => model.Location,
-                            new[] {
-                                new SelectListItem { Text = "Sofia", Value = "Sofia" },
-                                new SelectListItem { Text = "London", Value = "London" },
-                                new SelectListItem { Text = "Barcelona", Value = "Barcelona" },
-                                new SelectListItem { Text = "Paris", Value = "Paris" },
-                                new SelectListItem { Text = "Rome", Value = "Rome" }
-                            }, new { @class = "form-control" })
+                        @Html.LabelFor(model => model.Driver, new { @class = "col-sm-4 control-label" })
+                        <div class="col-sm-5" style="margin-top: 2%">
+                            @Html.RadioButtonFor(model => model.Driver,"Yes") Yes
+                            @Html.RadioButtonFor(model => model.Driver, "No") No
+                            <div>
+                                @Html.ValidationMessageFor(m => m.Driver, "", new {@class = "text-danger"})
+                            </div>
                         </div>
                     </div>
 

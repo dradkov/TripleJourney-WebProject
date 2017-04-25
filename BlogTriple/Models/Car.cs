@@ -13,8 +13,7 @@ namespace BlogTriple.Models
         public int Id { get; set; }
 
         [Required]
-        [Display(Name = "Location")]
-        public string Location { get; set; }
+        public string Driver { get; set; }
 
         [Required]
         [Display(Name = "Pick-up Date")]
