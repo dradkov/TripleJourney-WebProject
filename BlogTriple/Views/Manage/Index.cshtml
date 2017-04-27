@@ -27,7 +27,7 @@
                     <div class="mngimg">
                         @using (Html.BeginForm("UploadPhoto", "Manage", FormMethod.Post, new { enctype = "multipart/form-data" }))
                         {
-                            <div class="btn btn-default browseimg">
+                            <div class="btn btn-default" style="width: 230px">
                                 <input type="file" name="file" id="files" onchange="this.form.submit()" />
                             </div>
                         }

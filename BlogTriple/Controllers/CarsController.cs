@@ -46,7 +46,7 @@ namespace BlogTriple.Controllers
                 
                 var span = endDate.Subtract(startDate);
                 var hours = span.TotalHours;
-                decimal money = (decimal)hours * 7;
+                decimal money = (decimal)hours * 6;
 
                 var userId = db.Users
                         .Where(u => u.UserName == this.User.Identity.Name)

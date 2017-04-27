@@ -6,68 +6,73 @@
 
 <h2 align="center">Your reservation has been sent successfuly</h2>
 
-<div>
-    <h4>Order Details</h4>
-    <hr />
-    <dl class="dl-horizontal">
-        <dt>
-            @Html.DisplayNameFor(model => model.User)
-        </dt>
+<div class="row">
+    <div class="col-md-5">
+        <h4>Order Details</h4>
+        <hr align="left" width="300" />
+        <dl class="dl-horizontal">
+            <dt>
+                @Html.DisplayNameFor(model => model.User)
+            </dt>
 
-        <dd>
-            @Html.DisplayFor(model => model.User.FullName)
-        </dd>
-        <hr align="left" width="300"/>
-        <dt>
-            @Html.DisplayNameFor(model => model.Driver)
-        </dt>
+            <dd>
+                @Html.DisplayFor(model => model.User.FullName)
+            </dd>
+            <dt>
+                @Html.DisplayNameFor(model => model.Driver)
+            </dt>
 
-        <dd>
-            @Html.DisplayFor(model => model.Driver)
-        </dd>
+            <dd>
+                @Html.DisplayFor(model => model.Driver)
+            </dd>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.PickUpDate)
-        </dt>
+            <dt>
+                @Html.DisplayNameFor(model => model.PickUpDate)
+            </dt>
 
-        <dd>
-            @Html.DisplayFor(model => model.PickUpDate)
-        </dd>
+            <dd>
+                @Html.DisplayFor(model => model.PickUpDate)
+            </dd>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.PickUpTime)
-        </dt>
+            <dt>
+                @Html.DisplayNameFor(model => model.PickUpTime)
+            </dt>
 
-        <dd>
-            @Html.DisplayFor(model => model.PickUpTime)
-        </dd>
+            <dd>
+                @Html.DisplayFor(model => model.PickUpTime)
+            </dd>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.DropOffDate)
-        </dt>
+            <dt>
+                @Html.DisplayNameFor(model => model.DropOffDate)
+            </dt>
 
-        <dd>
-            @Html.DisplayFor(model => model.DropOffDate)
-        </dd>
+            <dd>
+                @Html.DisplayFor(model => model.DropOffDate)
+            </dd>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.DropOffTime)
-        </dt>
+            <dt>
+                @Html.DisplayNameFor(model => model.DropOffTime)
+            </dt>
 
-        <dd>
-            @Html.DisplayFor(model => model.DropOffTime)
-        </dd>
+            <dd>
+                @Html.DisplayFor(model => model.DropOffTime)
+            </dd>
 
-        <hr align="left" width="300"/>
+            <hr align="left" width="300"/>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.Price)
-        </dt>
+            <dt>
+                @Html.DisplayNameFor(model => model.Price)
+            </dt>
 
-        <dd>
-            @Html.DisplayFor(model => model.Price)
-        </dd>
-    </dl>
+            <dd>
+                @Html.DisplayFor(model => model.Price)
+            </dd>
+        </dl>
+    </div>
+
+    <div class="col-md-4">
+        <img src="/Images/drive.gif" alt="Alternate Text" class="img-responsive"/>
+    </div>
 </div>
 
 
