@@ -13,7 +13,8 @@
         <div class="col-md-4">
             <h2 class="hotel-details">Hotel @hotel.Name   </h2>
             <h3>@hotel.Stars Stars </h3>
-            <a href="/Hotels/BookingDetails" class="btn btn-success">Book Now</a> 
+      
+            <a href="/Hotels/BookingDetails/@hotel.Id?destinationId=@hotel.DestinationId" class="btn btn-success">Book Now</a> 
         </div>
         <div class="col-md-4">
             <p class="lead">

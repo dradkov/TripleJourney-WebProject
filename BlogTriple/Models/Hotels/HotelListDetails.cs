@@ -10,6 +10,8 @@ namespace BlogTriple.Models.Hotels
 
         public int Id { get; set; }
 
+        public int DestinationId { get; set; }
+
         public string Name { get; set; }
 
 
@@ -30,7 +32,6 @@ namespace BlogTriple.Models.Hotels
         public string ImageUrl { get; set; }
 
         public string Town { get; set; }
-
 
         public DateTime From { get; set; }
 
